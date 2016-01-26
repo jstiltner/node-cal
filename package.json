@@ -5,7 +5,6 @@
   "main": "cal.js",
   "scripts": {
     "test": "mocha --harmony_destructuring tests"
-    
   },
   "repository": {
     "type": "git",
