@@ -1,0 +1,19 @@
+{
+  "name": "node-cal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jstiltner/node-cal.git"
+  },
+  "author": "Jason Stiltner <jasonstiltner@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jstiltner/node-cal/issues"
+  },
+  "homepage": "https://github.com/jstiltner/node-cal#readme"
+}
