@@ -19,9 +19,12 @@ let modifiedYear = function (rawYear, rawMonth) {
 };
 
 let getDay = function (y, m, q){
-  modifiedMonth();
-  modifiedYear();
-  var h = (q + parseInt(((m + 1) * 26) / 10) + y + parseInt(y / 4) + 6 * parseInt(y / 100) + parseInt(y / 400) - 1) % 7;
+  modifiedYear(y,m);
+
+  modifiedMonth(m);
+
+  var h = (q + Math.floor(((m + 1) * 26) / 10) + y + parseInt(y / 4) +
+           6 * parseInt(y / 100) + parseInt(y / 400) - 1) % 7;
     return h;
 };
 

@@ -58,4 +58,15 @@ describe('cal', () => {
       });
     });
   });
+
+  describe('.center', () => {
+    const center = require('../lib/center');
+
+    it ('should handle January', () => {
+      expect(center('January 2016')).to.equal('    January 2016');
+    });
+     it ('should handle January', () => {
+      expect(center('January 2016')).to.equal('   February 2016');
+    });
+
 });
