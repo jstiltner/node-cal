@@ -57,16 +57,101 @@ describe('cal', () => {
         expect(zellers.getDay(2300, 3, 1)).to.equal(4);
       });
     });
-  });
+  // Tests for month.js module
+  describe('month.js module', () => {
+    const month = require('../lib/month.js');
 
-  describe('.center', () => {
-    const center = require('../lib/center');
-
-    it ('should handle January', () => {
-      expect(center('January 2016')).to.equal('    January 2016');
-    });
-     it ('should handle January', () => {
-      expect(center('January 2016')).to.equal('   February 2016');
+    describe('generateMonth', () => {
+      it('is a function of month.js', () => {
+        expect(month.generateMonth).to.be.a('function');
+      });
     });
 
+    describe('isValidMonth', () => {
+      it('is a function of month.js', () => {
+        expect(month.isValidMonth).to.be.a('function');
+      });
+
+      it('returns false if month < 1 || month > 12', () => {
+        expect(month.isValidMonth(0)).to.be.false;
+        expect(month.isValidMonth(13)).to.be.false;
+       });
+
+      it('returns false if month is not a number', () => {
+        expect(month.isValidMonth('a')).to.be.false;
+      });
+
+      it('returns false if month is no an integer', () => {
+        expect(month.isValidMonth(10.54)).to.be.false;
+      });
+
+      it('returns true if month is an integer && 0 < month < 13', () => {
+        expect(month.isValidMonth(1)).to.be.true;
+        expect(month.isValidMonth(12)).to.be.true;
+      });
 });
+    });
+describe('year.js module', () => {
+    const year = require('../lib/year.js');
+
+    describe('generateYear', () => {
+      it('is a function of year.js', () => {
+        expect(year.generateYear).to.be.a('function');
+      });
+    });
+
+    describe('isleapYear', () => {
+      it('is a function of year.js', () => {
+        expect(year.isLeapYear).to.be.a('function');
+      });
+
+      it('isLeapYear(2400) returns true', () => {
+        expect(year.isLeapYear(2400)).to.be.true;
+      });
+      it('isLeapYear(2016) returns true', () => {
+        expect(year.isLeapYear(2400)).to.be.true;
+      });
+      it('isLeapYear(2000) returns true', () => {
+        expect(year.isLeapYear(2400)).to.be.true;
+      });
+      it('isLeapYear(2500) returns false', () => {
+        expect(year.isLeapYear(2500)).to.be.false;
+      });
+      it('isLeapYear(1995) returns false', () => {
+        expect(year.isLeapYear(1995)).to.be.false;
+      });
+    });
+
+    describe('isValidYear', () => {
+      it('is a function of year.js', () => {
+        expect(year.isValidYear).to.be.a('function');
+      });
+
+      it('returns false if year < 1753', () => {
+        expect(year.isValidYear(1752)).to.be.false;
+      });
+
+      it('returns false if year > 9999', () => {
+        expect(year.isValidYear(10000)).to.be.false;
+      });
+
+      it('returns false if year is not a number', () => {
+        expect(year.isValidYear('a')).to.be.false;
+      });
+
+      it('returns false if year is not an integer', () => {
+        expect(year.isValidYear(1.321)).to.be.false;
+      });
+
+      it('returns true if year is > 1752', () => {
+        expect(year.isValidYear(1753)).to.be.true;
+      });
+
+      it('returns true if year is < 10000', () => {
+        expect(year.isValidYear(9999)).to.be.true;
+      });
+    });
+});
+});
+});
+
